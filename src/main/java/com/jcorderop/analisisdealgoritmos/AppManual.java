@@ -148,7 +148,7 @@ public class AppManual {
             renderer3.setSeriesStroke(0, new BasicStroke(2));
             renderer3.setSeriesStroke(1, new BasicStroke(2));
 
-            JFreeChart chart3 = ChartFactory.createXYLineChart("Prueba Inverso", "Tamaño", "Tiempos-de-ejecución", algoritmosBinariosAleatorios);
+            JFreeChart chart3 = ChartFactory.createXYLineChart("Prueba Binario Aleatorio", "Tamaño", "Tiempos-de-ejecución", algoritmosBinariosAleatorios);
             chart3.getXYPlot().getRangeAxis();
             ((NumberAxis) chart3.getXYPlot().getRangeAxis()).setNumberFormatOverride(new DecimalFormat("#"));
             chart3.getXYPlot().setRenderer(renderer3);
@@ -170,7 +170,7 @@ public class AppManual {
             renderer4.setSeriesStroke(0, new BasicStroke(2));
             renderer4.setSeriesStroke(1, new BasicStroke(2));
 
-            JFreeChart chart4 = ChartFactory.createXYLineChart("Prueba Inverso", "Tamaño", "Tiempos-de-ejecución", algoritmosBinariosOrdenado);
+            JFreeChart chart4 = ChartFactory.createXYLineChart("Prueba Binario Ordenado", "Tamaño", "Tiempos-de-ejecución", algoritmosBinariosOrdenado);
             chart4.getXYPlot().getRangeAxis();
             ((NumberAxis) chart4.getXYPlot().getRangeAxis()).setNumberFormatOverride(new DecimalFormat("#"));
             chart4.getXYPlot().setRenderer(renderer4);
@@ -192,7 +192,7 @@ public class AppManual {
             renderer5.setSeriesStroke(0, new BasicStroke(2));
             renderer5.setSeriesStroke(1, new BasicStroke(2));
 
-            JFreeChart chart5 = ChartFactory.createXYLineChart("Prueba Inverso", "Tamaño", "Tiempos-de-ejecución", algoritmosBinariosInverso);
+            JFreeChart chart5 = ChartFactory.createXYLineChart("Prueba Binario Inverso", "Tamaño", "Tiempos-de-ejecución", algoritmosBinariosInverso);
             chart5.getXYPlot().getRangeAxis();
             ((NumberAxis) chart5.getXYPlot().getRangeAxis()).setNumberFormatOverride(new DecimalFormat("#"));
             chart5.getXYPlot().setRenderer(renderer5);
