@@ -45,13 +45,13 @@ java -jar target/AnalisisDeAlgoritmos-0.0.1-SNAPSHOT.jar
 ### Generar Javadoc
 Se ejecuta el siguiente comando:
 ```
-make javadoc
+mvn javadoc:javadoc
 ```
 
 ### Visualización del Javadoc
 Se ejecuta el siguiente comando (es necesario tener `firefox`):
 ```
-firefox html/index.html
+firefox target/site/apidocs/index.html
 ```
 ---
 ## Autores ✒️

@@ -10,13 +10,14 @@ See the License for the specific language governing permissions and
 limitations under the License.*/
 
 /**
- * Esta clase se encarga de crear las gráficas
+ * Clase que se encarga de crear las gráficas de los algoritmos de ordenamiento
  *
  * @author Juan Cordero
- * @version 1.0 18/04/22
+ * @version 1.0 18/04/2022
  */
-package com.jcorderop.analisisdealgoritmos;
+package com.jcorderop.analisisdealgoritmos.modelo;
 
+import com.jcorderop.analisisdealgoritmos.readFile.ReadFile;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.NumberAxis;
@@ -27,20 +28,33 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.text.DecimalFormat;
+import java.util.List;
 
-public class AppManual {
-    public static void main(String[] args) {
+import static java.lang.System.out;
+
+/**
+ * Clase que se encarga de crear las gráficas de los algoritmos de ordenamiento
+ */
+public class Grafico {
+
+    /**
+     * Método encargado de crear los gráficos con los parámetros adecuado, cogiendo los valores de tiempo del archivo "tiempos.txt"
+     */
+    public static void Grafico() {
+        List<List<Double>> tiempos = ReadFile.readFile();
+
         try {
             /*
-             * Grafica para algoritmos aleatorios
+             * Gráfica para algoritmos aleatorios
              */
             DefaultXYDataset algortimosAleatorio = new DefaultXYDataset();
-            algortimosAleatorio.addSeries("BubleSort", new double[][]{{100, 1000, 10000}, {228810.0, 6527582.0, 211561570.0}});
-            algortimosAleatorio.addSeries("SelectSort", new double[][]{{100, 1000, 10000}, {105502, 3324109, 57787017}});
-            algortimosAleatorio.addSeries("InsercciónDirecta", new double[][]{{100, 1000, 10000}, {65900, 3186809, 66758029}});
-            algortimosAleatorio.addSeries("MergeSort", new double[][]{{100, 1000, 10000}, {238481, 6079345, 110331885}});
-            algortimosAleatorio.addSeries("QuickSort", new double[][]{{100, 1000, 10000}, {37970, 110279, 1394835}});
+            algortimosAleatorio.addSeries("BubleSort", new double[][]{{100, 1000, 10000}, {tiempos.get(0).get(0), tiempos.get(3).get(0), tiempos.get(6).get(0)}});
+            algortimosAleatorio.addSeries("SelectSort", new double[][]{{100, 1000, 10000}, {tiempos.get(9).get(0), tiempos.get(12).get(0), tiempos.get(15).get(0)}});
+            algortimosAleatorio.addSeries("InsercciónDirecta", new double[][]{{100, 1000, 10000}, {tiempos.get(18).get(0), tiempos.get(21).get(0), tiempos.get(24).get(0)}});
+            algortimosAleatorio.addSeries("MergeSort", new double[][]{{100, 1000, 10000}, {tiempos.get(27).get(0), tiempos.get(30).get(0), tiempos.get(33).get(0)}});
+            algortimosAleatorio.addSeries("QuickSort", new double[][]{{100, 1000, 10000}, {tiempos.get(36).get(0), tiempos.get(39).get(0), tiempos.get(42).get(0)}});
             XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer();
             renderer.setSeriesPaint(0, Color.ORANGE);
             renderer.setSeriesPaint(1, Color.BLUE);
@@ -63,18 +77,18 @@ public class AppManual {
             chart.getXYPlot().setRenderer(renderer);
 
             BufferedImage image = chart.createBufferedImage(600, 400);
-            ImageIO.write(image, "png", new File("graficos/algoritmos-aleatorio.png"));
+            ImageIO.write(image, "png", new File("graficos/algoritmos-aleatorio1.png"));
 
 
             /*
-             * Grafica para algoritmos ordenados
+             * Gráfica para algoritmos ordenados
              */
             DefaultXYDataset algortimosOrdenado = new DefaultXYDataset();
-            algortimosOrdenado.addSeries("BubleSort", new double[][]{{100, 1000, 10000}, {116141, 8648309, 310524148}});
-            algortimosOrdenado.addSeries("SelectSort", new double[][]{{100, 1000, 10000}, {115128, 1036646, 34495788}});
-            algortimosOrdenado.addSeries("InsercciónDirecta", new double[][]{{100, 1000, 10000}, {4576, 22870, 17924}});
-            algortimosOrdenado.addSeries("MergeSort", new double[][]{{100, 1000, 10000}, {183676, 4242569, 77909334}});
-            algortimosOrdenado.addSeries("QuickSort", new double[][]{{100, 1000, 10000}, {86404, 1564537, 45632647}});
+            algortimosOrdenado.addSeries("BubleSort", new double[][]{{100, 1000, 10000}, {tiempos.get(1).get(0), tiempos.get(4).get(0), tiempos.get(7).get(0)}});
+            algortimosOrdenado.addSeries("SelectSort", new double[][]{{100, 1000, 10000}, {tiempos.get(10).get(0), tiempos.get(13).get(0), tiempos.get(16).get(0)}});
+            algortimosOrdenado.addSeries("InsercciónDirecta", new double[][]{{100, 1000, 10000}, {tiempos.get(19).get(0), tiempos.get(22).get(0), tiempos.get(25).get(0)}});
+            algortimosOrdenado.addSeries("MergeSort", new double[][]{{100, 1000, 10000}, {tiempos.get(28).get(0), tiempos.get(31).get(0), tiempos.get(34).get(0)}});
+            algortimosOrdenado.addSeries("QuickSort", new double[][]{{100, 1000, 10000}, {tiempos.get(37).get(0), tiempos.get(40).get(0), tiempos.get(43).get(0)}});
             XYLineAndShapeRenderer renderer1 = new XYLineAndShapeRenderer();
             renderer1.setSeriesPaint(0, Color.ORANGE);
             renderer1.setSeriesPaint(1, Color.BLUE);
@@ -102,14 +116,14 @@ public class AppManual {
 
 
             /*
-             * Grafica para algoritmos inversos
+             * Gráfica para algoritmos inversos
              */
             DefaultXYDataset algortimosInverso = new DefaultXYDataset();
-            algortimosInverso.addSeries("BubleSort", new double[][]{{100, 1000, 10000}, {312467, 4393179, 46653487}});
-            algortimosInverso.addSeries("SelectSort", new double[][]{{100, 1000, 10000}, {118417, 2270467, 50334303}});
-            algortimosInverso.addSeries("InsercciónDirecta", new double[][]{{100, 1000, 10000}, {246022, 4696191, 29611095}});
-            algortimosInverso.addSeries("MergeSort", new double[][]{{100, 1000, 10000}, {101082, 4218819, 54439622}});
-            algortimosInverso.addSeries("QuickSort", new double[][]{{100, 1000, 10000}, {78093, 1737216, 38867862}});
+            algortimosInverso.addSeries("BubleSort", new double[][]{{100, 1000, 10000}, {tiempos.get(2).get(0), tiempos.get(5).get(0), tiempos.get(8).get(0)}});
+            algortimosInverso.addSeries("SelectSort", new double[][]{{100, 1000, 10000}, {tiempos.get(11).get(0), tiempos.get(14).get(0), tiempos.get(17).get(0)}});
+            algortimosInverso.addSeries("InsercciónDirecta", new double[][]{{100, 1000, 10000}, {tiempos.get(20).get(0), tiempos.get(23).get(0), tiempos.get(26).get(0)}});
+            algortimosInverso.addSeries("MergeSort", new double[][]{{100, 1000, 10000}, {tiempos.get(29).get(0), tiempos.get(32).get(0), tiempos.get(35).get(0)}});
+            algortimosInverso.addSeries("QuickSort", new double[][]{{100, 1000, 10000}, {tiempos.get(38).get(0), tiempos.get(41).get(0), tiempos.get(44).get(0)}});
             XYLineAndShapeRenderer renderer2 = new XYLineAndShapeRenderer();
             renderer2.setSeriesPaint(0, Color.ORANGE);
             renderer2.setSeriesPaint(1, Color.BLUE);
@@ -137,11 +151,11 @@ public class AppManual {
 
 
             /*
-             * Grafica para algoritmos binarios aleatorios
+             * Gráfica para algoritmos binarios aleatorios
              */
             DefaultXYDataset algoritmosBinariosAleatorios = new DefaultXYDataset();
-            algoritmosBinariosAleatorios.addSeries("BusquedaLineal", new double[][]{{100, 1000, 10000}, {33544, 63926, 497048}});
-            algoritmosBinariosAleatorios.addSeries("BusquedaBinaria", new double[][]{{100, 1000, 10000}, {14600, 2376, 3000}});
+            algoritmosBinariosAleatorios.addSeries("BusquedaLineal", new double[][]{{100, 1000, 10000}, {tiempos.get(45).get(0), tiempos.get(48).get(0), tiempos.get(51).get(0)}});
+            algoritmosBinariosAleatorios.addSeries("BusquedaBinaria", new double[][]{{100, 1000, 10000}, {tiempos.get(54).get(0), tiempos.get(57).get(0), tiempos.get(60).get(0)}});
             XYLineAndShapeRenderer renderer3 = new XYLineAndShapeRenderer();
             renderer3.setSeriesPaint(0, Color.ORANGE);
             renderer3.setSeriesPaint(1, Color.BLUE);
@@ -159,11 +173,11 @@ public class AppManual {
 
 
             /*
-             * Grafica para algoritmos binarios ordenados
+             * Gráfica para algoritmos binarios ordenados
              */
             DefaultXYDataset algoritmosBinariosOrdenado = new DefaultXYDataset();
-            algoritmosBinariosOrdenado.addSeries("BusquedaLineal", new double[][]{{100, 1000, 10000}, {2656, 1644, 4250}});
-            algoritmosBinariosOrdenado.addSeries("BusquedaBinaria", new double[][]{{100, 1000, 10000}, {1920, 4403, 5822}});
+            algoritmosBinariosOrdenado.addSeries("BusquedaLineal", new double[][]{{100, 1000, 10000}, {tiempos.get(46).get(0), tiempos.get(49).get(0), tiempos.get(52).get(0)}});
+            algoritmosBinariosOrdenado.addSeries("BusquedaBinaria", new double[][]{{100, 1000, 10000}, {tiempos.get(55).get(0), tiempos.get(58).get(0), tiempos.get(61).get(0)}});
             XYLineAndShapeRenderer renderer4 = new XYLineAndShapeRenderer();
             renderer4.setSeriesPaint(0, Color.ORANGE);
             renderer4.setSeriesPaint(1, Color.BLUE);
@@ -181,11 +195,11 @@ public class AppManual {
 
 
             /*
-             * Grafica para algoritmos binarios inversos
+             * Gráfica para algoritmos binarios inversos
              */
             DefaultXYDataset algoritmosBinariosInverso = new DefaultXYDataset();
-            algoritmosBinariosInverso.addSeries("BusquedaLineal", new double[][]{{100, 1000, 10000}, {6317, 43975, 402318}});
-            algoritmosBinariosInverso.addSeries("BusquedaBinaria", new double[][]{{100, 1000, 10000}, {2106, 3718, 4474}});
+            algoritmosBinariosInverso.addSeries("BusquedaLineal", new double[][]{{100, 1000, 10000}, {tiempos.get(47).get(0), tiempos.get(50).get(0), tiempos.get(53).get(0)}});
+            algoritmosBinariosInverso.addSeries("BusquedaBinaria", new double[][]{{100, 1000, 10000}, {tiempos.get(56).get(0), tiempos.get(59).get(0), tiempos.get(62).get(0)}});
             XYLineAndShapeRenderer renderer5 = new XYLineAndShapeRenderer();
             renderer5.setSeriesPaint(0, Color.ORANGE);
             renderer5.setSeriesPaint(1, Color.BLUE);
@@ -199,8 +213,10 @@ public class AppManual {
 
             BufferedImage image5 = chart5.createBufferedImage(600, 400);
             ImageIO.write(image5, "png", new File("graficos/algoritmos-binario-inverso.png"));
-        } catch (Exception e) {
 
+            out.println("Se han generado los graficos.");
+        } catch (IOException e) {
+            out.println("No se pudo crear los graficos.");
         }
     }
 }

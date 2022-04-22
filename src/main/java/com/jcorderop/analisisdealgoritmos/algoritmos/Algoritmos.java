@@ -10,12 +10,14 @@ See the License for the specific language governing permissions and
 limitations under the License.*/
 
 /**
+ * Clase que implementa todos los algoritmos de ordenación y su prueba con arrays y distintos tamaños y orden.
+ *
  * @author Juan Cordero
- * @version 1.0 18/04/22
+ * @version 1.0 14/04/22
  */
-package com.jcorderop.analisisdealgoritmos.Algoritmos;
+package com.jcorderop.analisisdealgoritmos.algoritmos;
 
-import com.jcorderop.analisisdealgoritmos.Modelo.Analizador;
+import com.jcorderop.analisisdealgoritmos.modelo.Analizador;
 
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -25,6 +27,9 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
+/**
+ * Clase que contiene los algoritmos de ordenamiento
+ */
 public class Algoritmos {
 
     public static void desordena(long[] L) {
@@ -95,7 +100,11 @@ public class Algoritmos {
         return A;
     }
 
-    public static void main(String[] args) {
+    /**
+     * Método que contiene todos los algoritmos de ordenamiento y ejecuta las pruebas para los distintos tamaños de
+     * arrays dependiendo si está ordenado, inverso o aleatorio.
+     */
+    public static void Algoritmos() {
         Function<long[], long[]> BubbleSort = L -> {
             for (int i = 1; i < L.length; i++)
                 for (int j = L.length - 1; j >= i; j--)
@@ -188,18 +197,18 @@ public class Algoritmos {
             out.println("BubbleSort");
             for (int i = 0; i < 3; i++) {
                 out.print(tam + "\t");
-                System.out.println("tamaño: " + tam);
+                //System.out.println("tamaño: " + tam);
                 resultado = Analizador.analiza(JuegoPruebasAleatorio[i], BubbleSort, out);
-                System.out.println("aleatorio: " + Arrays.toString(JuegoPruebasAleatorio[i]));
-                System.out.println("ordenado: " + Arrays.toString(resultado));
+                //System.out.println("aleatorio: " + Arrays.toString(JuegoPruebasAleatorio[i]));
+                //System.out.println("ordenado: " + Arrays.toString(resultado));
 
                 resultado = Analizador.analiza(JuegoPruebasOrdenado[i], BubbleSort, out);
-                System.out.println("ya ordenado: " + Arrays.toString(JuegoPruebasOrdenado[i]));
-                System.out.println("ordenado: " + Arrays.toString(resultado));
+                //System.out.println("ya ordenado: " + Arrays.toString(JuegoPruebasOrdenado[i]));
+                //System.out.println("ordenado: " + Arrays.toString(resultado));
 
                 resultado = Analizador.analiza(JuegoPruebasInverso[i], BubbleSort, out);
-                System.out.println("inverso: " + Arrays.toString(JuegoPruebasInverso[i]));
-                System.out.println("ordenado: " + Arrays.toString(resultado));
+                //System.out.println("inverso: " + Arrays.toString(JuegoPruebasInverso[i]));
+                //System.out.println("ordenado: " + Arrays.toString(resultado));
                 out.println();
                 tam *= 10;
             }
@@ -207,18 +216,18 @@ public class Algoritmos {
             tam = 100;
             for (int i = 0; i < 3; i++) {
                 out.print(tam + "\t");
-                System.out.println("tamaño: " + tam);
+                //System.out.println("tamaño: " + tam);
                 resultado = Analizador.analiza(JuegoPruebasAleatorio[i], SelectSort, out);
-                System.out.println("aleatorio: " + Arrays.toString(JuegoPruebasAleatorio[i]));
-                System.out.println("ordenado: " + Arrays.toString(resultado));
+                //System.out.println("aleatorio: " + Arrays.toString(JuegoPruebasAleatorio[i]));
+                //System.out.println("ordenado: " + Arrays.toString(resultado));
 
                 resultado = Analizador.analiza(JuegoPruebasOrdenado[i], SelectSort, out);
-                System.out.println("ya ordenado: " + Arrays.toString(JuegoPruebasOrdenado[i]));
-                System.out.println("ordenado: " + Arrays.toString(resultado));
+                //System.out.println("ya ordenado: " + Arrays.toString(JuegoPruebasOrdenado[i]));
+                //System.out.println("ordenado: " + Arrays.toString(resultado));
 
                 resultado = Analizador.analiza(JuegoPruebasInverso[i], SelectSort, out);
-                System.out.println("inverso: " + Arrays.toString(JuegoPruebasInverso[i]));
-                System.out.println("ordenado: " + Arrays.toString(resultado));
+                //System.out.println("inverso: " + Arrays.toString(JuegoPruebasInverso[i]));
+                //System.out.println("ordenado: " + Arrays.toString(resultado));
                 out.println();
                 tam *= 10;
             }
@@ -226,18 +235,18 @@ public class Algoritmos {
             tam = 100;
             for (int i = 0; i < 3; i++) {
                 out.print(tam + "\t");
-                System.out.println("tamaño: " + tam);
+                //System.out.println("tamaño: " + tam);
                 resultado = Analizador.analiza(JuegoPruebasAleatorio[i], InserccionDirecta, out);
-                System.out.println("aleatorio: " + Arrays.toString(JuegoPruebasAleatorio[i]));
-                System.out.println("ordenado: " + Arrays.toString(resultado));
+                //System.out.println("aleatorio: " + Arrays.toString(JuegoPruebasAleatorio[i]));
+                //System.out.println("ordenado: " + Arrays.toString(resultado));
 
                 resultado = Analizador.analiza(JuegoPruebasOrdenado[i], InserccionDirecta, out);
-                System.out.println("ya ordenado: " + Arrays.toString(JuegoPruebasOrdenado[i]));
-                System.out.println("ordenado: " + Arrays.toString(resultado));
+                //System.out.println("ya ordenado: " + Arrays.toString(JuegoPruebasOrdenado[i]));
+                //System.out.println("ordenado: " + Arrays.toString(resultado));
 
                 resultado = Analizador.analiza(JuegoPruebasInverso[i], InserccionDirecta, out);
-                System.out.println("inverso: " + Arrays.toString(JuegoPruebasInverso[i]));
-                System.out.println("ordenado: " + Arrays.toString(resultado));
+                //System.out.println("inverso: " + Arrays.toString(JuegoPruebasInverso[i]));
+                //System.out.println("ordenado: " + Arrays.toString(resultado));
                 out.println();
                 tam *= 10;
             }
@@ -245,18 +254,18 @@ public class Algoritmos {
             tam = 100;
             for (int i = 0; i < 3; i++) {
                 out.print(tam + "\t");
-                System.out.println("tamaño: " + tam);
+                //System.out.println("tamaño: " + tam);
                 resultado = Analizador.analiza(JuegoPruebasAleatorio[i], MergeSort, out);
-                System.out.println("aleatorio: " + Arrays.toString(JuegoPruebasAleatorio[i]));
-                System.out.println("ordenado: " + Arrays.toString(resultado));
+                //System.out.println("aleatorio: " + Arrays.toString(JuegoPruebasAleatorio[i]));
+                //System.out.println("ordenado: " + Arrays.toString(resultado));
 
                 resultado = Analizador.analiza(JuegoPruebasOrdenado[i], MergeSort, out);
-                System.out.println("ya ordenado: " + Arrays.toString(JuegoPruebasOrdenado[i]));
-                System.out.println("ordenado: " + Arrays.toString(resultado));
+                //System.out.println("ya ordenado: " + Arrays.toString(JuegoPruebasOrdenado[i]));
+                //System.out.println("ordenado: " + Arrays.toString(resultado));
 
                 resultado = Analizador.analiza(JuegoPruebasInverso[i], MergeSort, out);
-                System.out.println("inverso: " + Arrays.toString(JuegoPruebasInverso[i]));
-                System.out.println("ordenado: " + Arrays.toString(resultado));
+                //System.out.println("inverso: " + Arrays.toString(JuegoPruebasInverso[i]));
+                //System.out.println("ordenado: " + Arrays.toString(resultado));
                 out.println();
                 tam *= 10;
             }
@@ -264,18 +273,18 @@ public class Algoritmos {
             tam = 100;
             for (int i = 0; i < 3; i++) {
                 out.print(tam + "\t");
-                System.out.println("tamaño: " + tam);
+                //System.out.println("tamaño: " + tam);
                 resultado = Analizador.analiza(JuegoPruebasAleatorio[i], QuickSort, out);
-                System.out.println("aleatorio: " + Arrays.toString(JuegoPruebasAleatorio[i]));
-                System.out.println("ordenado: " + Arrays.toString(resultado));
+                //System.out.println("aleatorio: " + Arrays.toString(JuegoPruebasAleatorio[i]));
+                //System.out.println("ordenado: " + Arrays.toString(resultado));
 
                 resultado = Analizador.analiza(JuegoPruebasOrdenado[i], QuickSort, out);
-                System.out.println("ya ordenado: " + Arrays.toString(JuegoPruebasOrdenado[i]));
-                System.out.println("ordenado: " + Arrays.toString(resultado));
+                //System.out.println("ya ordenado: " + Arrays.toString(JuegoPruebasOrdenado[i]));
+                //System.out.println("ordenado: " + Arrays.toString(resultado));
 
                 resultado = Analizador.analiza(JuegoPruebasInverso[i], QuickSort, out);
-                System.out.println("inverso: " + Arrays.toString(JuegoPruebasInverso[i]));
-                System.out.println("ordenado: " + Arrays.toString(resultado));
+                //System.out.println("inverso: " + Arrays.toString(JuegoPruebasInverso[i]));
+                //System.out.println("ordenado: " + Arrays.toString(resultado));
                 out.println();
                 tam *= 10;
             }
@@ -284,17 +293,17 @@ public class Algoritmos {
             long presultado;
             for (int i = 0; i < 3; i++) {
                 out.print(tam + "\t");
-                System.out.println("tamaño: " + tam);
+                //System.out.println("tamaño: " + tam);
                 presultado = Analizador.analizaBusqueda(JuegoPruebasAleatorio[i], random.nextInt(JuegoPruebasAleatorio.length), BusquedaLineal, out);
-                System.out.println("aleatorio: " + Arrays.toString(JuegoPruebasAleatorio[i]));
+                //System.out.println("aleatorio: " + Arrays.toString(JuegoPruebasAleatorio[i]));
                 //System.out.println("ordenado: " + Arrays.toString(resultado));
 
                 presultado = Analizador.analizaBusqueda(JuegoPruebasOrdenado[i], random.nextInt(JuegoPruebasAleatorio.length), BusquedaLineal, out);
-                System.out.println("ya ordenado: " + Arrays.toString(JuegoPruebasOrdenado[i]));
+                //System.out.println("ya ordenado: " + Arrays.toString(JuegoPruebasOrdenado[i]));
                 //System.out.println("ordenado: " + Arrays.toString(resultado));
 
                 presultado = Analizador.analizaBusqueda(JuegoPruebasInverso[i], random.nextInt(JuegoPruebasAleatorio.length), BusquedaLineal, out);
-                System.out.println("inverso: " + Arrays.toString(JuegoPruebasInverso[i]));
+                //System.out.println("inverso: " + Arrays.toString(JuegoPruebasInverso[i]));
                 //System.out.println("ordenado: " + Arrays.toString(resultado));
                 out.println();
                 tam *= 10;
@@ -304,17 +313,17 @@ public class Algoritmos {
             long presultado2;
             for (int i = 0; i < 3; i++) {
                 out.print(tam + "\t");
-                System.out.println("tamaño: " + tam);
+                //System.out.println("tamaño: " + tam);
                 presultado2 = Analizador.analizaBusqueda(JuegoPruebasAleatorio[i], random.nextInt(JuegoPruebasAleatorio.length), BusquedaBinaria, out);
-                System.out.println("aleatorio: " + Arrays.toString(JuegoPruebasAleatorio[i]));
+                //System.out.println("aleatorio: " + Arrays.toString(JuegoPruebasAleatorio[i]));
                 //System.out.println("ordenado: " + Arrays.toString(resultado));
 
                 presultado2 = Analizador.analizaBusqueda(JuegoPruebasOrdenado[i], random.nextInt(JuegoPruebasAleatorio.length), BusquedaBinaria, out);
-                System.out.println("ya ordenado: " + Arrays.toString(JuegoPruebasOrdenado[i]));
+                //System.out.println("ya ordenado: " + Arrays.toString(JuegoPruebasOrdenado[i]));
                 //System.out.println("ordenado: " + Arrays.toString(resultado));
 
                 presultado2 = Analizador.analizaBusqueda(JuegoPruebasInverso[i], random.nextInt(JuegoPruebasAleatorio.length), BusquedaBinaria, out);
-                System.out.println("inverso: " + Arrays.toString(JuegoPruebasInverso[i]));
+                //System.out.println("inverso: " + Arrays.toString(JuegoPruebasInverso[i]));
                 //System.out.println("ordenado: " + Arrays.toString(resultado));
                 out.println();
                 tam *= 10;
@@ -322,8 +331,8 @@ public class Algoritmos {
             out.close();
 
         } catch (Exception e) {
-            System.out.print("error en fichero");
+            System.out.println("error en fichero");
         }
-        System.out.print("Fin");
+        System.out.println("Se ha ejecutado correctamente todos los algoritmos.");
     }
 }
