@@ -77,7 +77,7 @@ public class Grafico {
             chart.getXYPlot().setRenderer(renderer);
 
             BufferedImage image = chart.createBufferedImage(600, 400);
-            ImageIO.write(image, "png", new File("graficos/algoritmos-aleatorio1.png"));
+            ImageIO.write(image, "png", new File("graficos/algoritmos-aleatorio.png"));
 
 
             /*
